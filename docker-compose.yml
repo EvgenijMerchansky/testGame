@@ -1,0 +1,15 @@
+version: '2'
+services:
+  backend:
+    image: "node"
+    build: .
+    command: npm run start-server
+    ports:
+     - "9000:9000"
+    volumes:
+      - ./server:/usr/src/app/server
+      - ./client/src:/usr/src/app/client/src
+  mongo:
+    image: "mongo"
+    ports:
+     - "27017:27017"
