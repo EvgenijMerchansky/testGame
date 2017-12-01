@@ -57,8 +57,12 @@
     "webpack": "latest"
   },
   "scripts": {
+    "docker-build": "docker-compose build",
+    "docker-up": "docker-compose up -d",
+    "combine": "npm run docker-build && npm run docker-up",
+    "run": "npm run combine",
     "start": "react-scripts start",
-    "start-server": "node server/app.js",
+    "start-server": "nodemon --use-strict server/app.js",
     "dev": "webpack-dev-server --output-public-path=/build/",
     "build": "webpack -w",
     "eject": "react-scripts eject",
